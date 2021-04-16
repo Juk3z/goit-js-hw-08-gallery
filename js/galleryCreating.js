@@ -4,11 +4,11 @@ const modalEl = document.querySelector('.js-lightbox');
 const modalImgEl = document.querySelector('.lightbox__image')
 const closeBtnEl = document.querySelector('button[data-action="close-lightbox"]');
 const overlayEl = document.querySelector('.lightbox__overlay');
+
 const imgLinksArray = [];
 let imgLink = '';
 
-// ---------------------
-
+// --------------------- создание галереии в html
 makingListItems(gallery);
 function makingListItems(object) {
   const listItemArray = object.map(item => {
@@ -31,7 +31,7 @@ function makingListItems(object) {
   
 };
 
-// --------------------
+// -------------------- получение ссылки на оригинальное фото при клике
 galleryListEl.addEventListener('click', letOriginalImg);
 function letOriginalImg(e) {
     e.preventDefault();
@@ -41,21 +41,20 @@ function letOriginalImg(e) {
   };
 };
 
-// -------------
+// ---------------- создание модального окна при клике на фото
 function openModal() {
   modalEl.classList.toggle('is-open');
   modalImgEl.setAttribute('src', imgLink);
   controlModal();
 };
-
 function controlModal() {
   modalEl.addEventListener('click', closeBtn)
   modalEl.addEventListener('click', overlayClose);
   window.addEventListener('keydown', escapeClose);
   window.addEventListener('keydown', photoSlider);
-}
-// -------------------
+};
 
+// ------------------ элементы управленя модальным окном
 function closeBtn(e) {
   if (e.target === closeBtnEl) {
     modalEl.classList.toggle('is-open');
