@@ -41,7 +41,7 @@ function letOriginalImg(e) {
   };
 };
 
-// ---------------- создание модального окна при клике на фото
+// ---------------- выпадение модального окна при клике на фото
 function openModal() {
   modalEl.classList.toggle('is-open');
   modalImgEl.setAttribute('src', imgLink);
@@ -54,7 +54,7 @@ function controlModal() {
   window.addEventListener('keydown', photoSlider);
 };
 
-// ------------------ элементы управленя модальным окном
+// ------------------ элементы управления модальным окном
 function closeBtn(e) {
   if (e.target === closeBtnEl) {
     modalEl.classList.toggle('is-open');
